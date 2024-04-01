@@ -22,17 +22,17 @@ type MeetingModalProps = {
     image?: string;
     buttonIcon?: string;
     handleClick: () => void;
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 const MeetingModal: FC<MeetingModalProps> = ({ children, image, buttonIcon, isOpen, onClose, title, className, buttonText, handleClick }) => {
   return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogTrigger>Open</DialogTrigger>
+        <DialogTrigger></DialogTrigger>
         <DialogContent className="flex flex-col gap-6 border-none bg-dark-1 px-6 py-9 text-white w-full max-w-[520px]">
             <div className="flex flex-col gap-6">
                 { image ? (
-                    <div className='flex justify-between '>
+                    <div className='flex items-center justify-center '>
                         <Image src={image} alt={title} width={72} height={72} />
                     </div>
                 ) : null }
@@ -40,7 +40,7 @@ const MeetingModal: FC<MeetingModalProps> = ({ children, image, buttonIcon, isOp
                 <h1 className={cn("text-3xl font-bold leading-[42px]", className)}>
                     {title}
                 </h1>
-                {children}
+                { children && children }
                 <Button 
                 className='bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0'
                 onClick={handleClick}

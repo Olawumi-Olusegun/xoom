@@ -2,6 +2,13 @@
 import React, { type PropsWithChildren } from 'react'
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "xoom",
+  description: "Video calling app",
+  icons: "/icons/logo.svg"
+};
 
 const HomeLayout = ({children}: PropsWithChildren) => {
   return (
